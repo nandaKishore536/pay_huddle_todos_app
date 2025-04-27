@@ -1,28 +1,35 @@
 .task-form {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .task-input {
-    flex: 1;
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: 2px solid #ccc;
-  }
-  .task-input:focus {
-    background-color: #dbeafe;
-    outline: none;
-  }
-  .add-btn {
-    background-color: #10b981;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background 0.3s;
-  }
-  .add-btn:hover {
-    background-color: #059669;
-  }
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.task-input,
+.due-date-input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  outline: none;
+}
+
+.task-input:focus,
+.due-date-input:focus {
+  background-color: #dbeafe;
+}
+
+.add-btn {
+  background-color: #10b981;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #059669;
+}

@@ -1,18 +1,22 @@
 .task-item {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr 1.5fr 1.5fr auto; /* Adjust the columns for proper alignment */
   gap: 1rem;
   align-items: center;
   background: #f9f9f9;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease;
   margin-top: 0.75rem;
 }
 
 .task-item.editing {
-  background: #e0f7fa;
+  background-color: #fff3cd;
+}
+
+.task-title {
+  grid-column: 1 / 2; /* Align the task title properly */
 }
 
 .task-title-input,
@@ -23,6 +27,7 @@
   color: #333;
   width: 100%;
   outline: none;
+  padding: 0.5rem;
 }
 
 .task-title-label:disabled {
@@ -35,6 +40,29 @@
   border-radius: 6px;
   border: 1px solid #ccc;
   background-color: white;
+}
+
+.task-due-date {
+  font-size: 0.8rem;
+  color: #777;
+  display: flex;
+  align-items: center;
+}
+
+.task-due-date-input {
+  font-size: 0.9rem;
+  padding: 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  width: 100px;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 4;
 }
 
 .task-actions button {
@@ -51,8 +79,6 @@
   color: #000;
 }
 
-.task-due-date {
-  font-size: 0.8rem;
-  color: #777;
-  margin-top: 4px;
+.task-actions button:disabled {
+  color: #ccc;
 }
