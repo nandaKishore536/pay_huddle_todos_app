@@ -127,13 +127,18 @@ export default function GroupedTodosApp() {
               <div className="group-header">
                 {editingGroupId === group._id ? (
                   <input
-                    type="text"
-                    value={editedGroupTitles[group._id] || group.name}
-                    onChange={(e) =>
-                      setEditedGroupTitles({ ...editedGroupTitles, [group._id]: e.target.value })
-                    }
-                    className="group-title-input"
-                  />
+  type="text"
+  value={editedGroupTitles[group._id] !== undefined ? editedGroupTitles[group._id] : group.name} // ensure state is reflected
+  onChange={(e) => {
+    // Update the specific group's title in state only if it has changed
+    setEditedGroupTitles((prevState) => ({
+      ...prevState,
+      [group._id]: e.target.value,  // Track changes in each group's title
+    }));
+  }}
+  className="group-title-input"
+/>
+
                 ) : (
                   <div className="group-title-label">{group.name}</div>
                 )}
