@@ -4,8 +4,7 @@ const Group = require('../models/group');
 const Task = require('../models/task');
 
 
-// CREATE Group
-// POST - Create a new group
+// Create group
 router.post('/', async (req, res) => {
   try {
     const { name } = req.body;
@@ -35,7 +34,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// UPDATE Group name
+// UPDATE Group  name
 router.put('/:id', async (req, res) => {
   try {
     const group = await Group.findById(req.params.id);
