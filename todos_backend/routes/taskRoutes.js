@@ -3,7 +3,7 @@ const router = express.Router();
 const Task = require('../models/task');
 const Group = require('../models/group');
 
-// ADD Task to a Group
+// Add task to the group
 router.post('/:groupId', async (req, res) => {
   try {
     const groupId = req.params.groupId;
@@ -17,7 +17,7 @@ router.post('/:groupId', async (req, res) => {
 
     const savedTask = await newTask.save();
 
-    // Push task to group's tasks array
+    // Push task to group arry
     await Group.findByIdAndUpdate(groupId, {
       $push: { tasks: savedTask._id }
     });
@@ -30,7 +30,7 @@ router.post('/:groupId', async (req, res) => {
 
 
 
-// PUT - Update a task by ID
+// PUT - Update the task
 router.put('/:taskId', async (req, res) => {
   try {
     const { taskId } = req.params;
@@ -48,7 +48,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const taskId = req.params.id;
 
-    // Find the task to get its groupId
+    // Find the task
     const task = await Task.findById(taskId);
     if (!task) return res.status(404).json({ message: 'Task not found' });
 
@@ -57,7 +57,7 @@ router.delete('/:id', async (req, res) => {
     // Delete the task
     await Task.findByIdAndDelete(taskId);
 
-    // Remove the task reference from the group's tasks array
+    // Remove move the tasks when group is deleted 
     await Group.findByIdAndUpdate(groupId, {
       $pull: { tasks: taskId }
     });
