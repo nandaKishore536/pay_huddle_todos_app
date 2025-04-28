@@ -9,7 +9,7 @@ const taskRoutes = require('./routes/taskRoutes');
 const app = express();
 const PORT = 5000;
 
-// Middleware
+
 app.use(bodyParser.json());
 
 // MongoDB connection
